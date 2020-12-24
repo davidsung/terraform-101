@@ -36,7 +36,7 @@ resource "aws_instance" "amazon_linux_2" {
   instance_type          = "t3.small"
   user_data              = templatefile("${path.module}/templates/init.tpl", {})
   vpc_security_group_ids = [aws_security_group.allow_http.id]
-  iam_instance_profile = aws_iam_instance_profile.workload_instance_profile.name
+  iam_instance_profile   = aws_iam_instance_profile.workload_instance_profile.name
   tags = {
     Environment = var.environment
   }
